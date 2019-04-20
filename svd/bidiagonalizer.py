@@ -9,7 +9,7 @@ def householder_reduction(A):
         A (numpy.ndarray): 2-dim array representing input matrix of size m by n, where m > n.
 
     Returns:
-        Three 2-dim numpy arrays which correspond to matrices  U, B and V.T
+        Three 2-dim numpy arrays which correspond to matrices  U, B and V
         such that A = UB(V.T), U and V are orthogonal and B is upper bidiagonal.
     """
 
@@ -43,4 +43,4 @@ def householder_reduction(A):
             V[:, k + 1:n] = np.matmul(V[:, k + 1:n], V_temp[k + 1:n, k + 1:n].T)
             B[k:m, (k + 1):n] = np.matmul(B[k:m, (k + 1):n], V_temp[k + 1:n, k + 1: n].T)
 
-    return U.T, B, V.T
+    return U.T, B, V
