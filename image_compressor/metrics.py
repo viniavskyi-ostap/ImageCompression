@@ -30,9 +30,9 @@ class SSIMetric(Metric):
         simmilarity = 0
         for y in range(0, m - SSIMetric.WINDOW_SIZE, SSIMetric.WINDOW_SIZE):
             for x in range(0, n - SSIMetric.WINDOW_SIZE, SSIMetric.WINDOW_SIZE):
-                windows_number+=1
-                simmilarity += SSIMetric.ssim(image[y:y+SSIMetric.WINDOW_SIZE, x:x+SSIMetric.WINDOW_SIZE],
-                                              decompressed[y:y+SSIMetric.WINDOW_SIZE, x:x+SSIMetric.WINDOW_SIZE])
+                windows_number += 1
+                simmilarity += SSIMetric.ssim(image[y:y + SSIMetric.WINDOW_SIZE, x:x + SSIMetric.WINDOW_SIZE],
+                                              decompressed[y:y + SSIMetric.WINDOW_SIZE, x:x + SSIMetric.WINDOW_SIZE])
         simmilarity /= windows_number
         print(rank, simmilarity)
         return simmilarity >= self._threshold

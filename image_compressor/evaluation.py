@@ -11,7 +11,7 @@ def mse(image, compressed):
 def psnr(image, compressed):
     max_i = 255
     error = mse(image, compressed)
-    return 20 * log10(max_i / sqrt(error))
+    return 20 * log10(max_i / sqrt(error)) if error > 0 else float(inf)
 
 
 def pearson_correlation(image, compressed):
