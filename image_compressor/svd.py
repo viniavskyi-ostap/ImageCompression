@@ -112,7 +112,7 @@ def givens_push(U, B, p, q):
 
 def svd(A):
     m, n = A.shape
-    epsilon = 1e-7
+    epsilon = 1e-3
     U, B, V = householder_reduction(A)
     V = V.T
     while True:

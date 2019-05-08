@@ -1,7 +1,6 @@
 import numpy as np
 from image_compressor.svd import svd
 from image_compressor.compressed import Compressed
-import time
 
 
 class SVDCompressor:
@@ -24,7 +23,6 @@ class SVDCompressor:
         U = U[:, indexes]
         V = V[indexes, :]
         singular_values = singular_values[indexes]
-
         if transposed:
             image = image.T
         rank = 1
@@ -32,4 +30,3 @@ class SVDCompressor:
             rank += 1
 
         return Compressed(U[:, :rank], singular_values[:rank], V[:rank, :])
-
