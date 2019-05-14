@@ -6,9 +6,9 @@ class Compressed:
     MIN_PIXEL_INTENSITY = 0
 
     def __init__(self, U, S, V):
-        self.__U = U
-        self.__S = S
-        self.__V = V
+        self.__U = U.astype(np.float16)
+        self.__S = S.astype(np.float16)
+        self.__V = V.astype(np.float16)
 
     def to_image(self):
         S = np.diag(self.__S)
